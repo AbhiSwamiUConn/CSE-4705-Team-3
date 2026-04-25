@@ -64,12 +64,12 @@ Four files are generated in `data/processed/`:
 
 ## Model Comparison Assignments
 
-To ensure a fair scientific comparison per CSE 4705 requirements, each member must use the exact same `.npy` files from `data/processed/`.
+To ensure a fair scientific comparison, each model must use the exact same `.npy` files from `data/processed/`.
 
 | Model | Owner | Input Format | Key Metric |
 |---|---|---|---|
-| Logistic Regression | Member 1 | 2D Flattened (1024) | Baseline Accuracy |
-| Random Forest | Member 2 | 2D Flattened (1024) | Overfitting Analysis |
+| Logistic Regression | Abhinav | 2D Flattened (1024) | Baseline Accuracy |
+| Random Forest | Justin | 2D Flattened (1024) | Overfitting Analysis |
 | CNN | Krish | 4D Spatial (32x32x1) | Max Accuracy / GPU Perf |
 
 ---
