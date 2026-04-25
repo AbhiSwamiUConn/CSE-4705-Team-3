@@ -1,8 +1,8 @@
 from pathlib import Path
 import shutil
 
-# Source: full 15,200-file HOMUS dataset (Windows Downloads)
-SOURCE_DIR = Path("/mnt/c/Users/Krish/Downloads/HOMUS/HOMUS")
+# Source: full 15,200-file HOMUS dataset (relative import)
+SOURCE_DIR = Path("../HOMUS")
 
 # Target: project data/raw subdirectories
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
