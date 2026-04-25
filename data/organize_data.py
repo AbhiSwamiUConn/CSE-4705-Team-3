@@ -11,9 +11,9 @@ TARGET_BASE = PROJECT_ROOT / "data" / "raw"
 # Class label (first line of file) -> target subfolder
 # The HOMUS files use "Whole-Note", "Half-Note", "Quarter-Note" (capital N)
 CLASS_MAP = {
-    "whole": TARGET_BASE / "whole",
-    "half":  TARGET_BASE / "half",
-    "quarter": TARGET_BASE / "quarter",
+    "whole-note": TARGET_BASE / "whole-note",
+    "half-note":  TARGET_BASE / "half-note",
+    "quarter-note": TARGET_BASE / "quarter-note",
 }
 
 
