@@ -12,7 +12,7 @@ IMG_SIZE = 32
 STROKE_THICKNESS = 3
 PADDING = 10
 
-CLASS_LABELS = {"whole": 0, "half": 1, "quarter": 2}
+CLASS_LABELS = {"whole-note": 0, "half-note": 1, "quarter-note": 2}
 
 
 def parse_strokes(filepath: Path) -> list[list[tuple[int, int]]]:

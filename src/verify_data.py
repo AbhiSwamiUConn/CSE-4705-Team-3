@@ -6,7 +6,7 @@ X_train = np.load('data/processed/X_train_cnn.npy')
 y_train = np.load('data/processed/y_train.npy')
 
 # Map IDs back to names for the title
-class_names = {0: 'Whole', 1: 'Half', 2: 'Quarter'}
+class_names = {0: 'Whole-note', 1: 'Half-note', 2: 'Quarter-note'}
 
 # Set up a grid to view 5 random samples
 plt.figure(figsize=(12, 4))
