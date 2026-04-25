@@ -5,3 +5,6 @@ env/
 
 # Local Data Extraction and Organization script
 data/organize_data.py
+
+# HOMUS Music Symbol Library
+HOMUS/
