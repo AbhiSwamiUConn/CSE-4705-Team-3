@@ -1,4 +1,20 @@
-# Virtual Environment
+# Virtual Environments
 venv/
 .venv/
 env/
+
+# Data - Ignore the actual files, but keep the folders
+data/raw/**
+data/processed/*.npy
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Large HOMUS source folder (if it's inside your project)
+HOMUS/
