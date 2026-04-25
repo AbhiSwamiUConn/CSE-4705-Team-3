@@ -1,10 +1,20 @@
-# Virtual Environment
+# Virtual Environments
 venv/
 .venv/
 env/
 
-# Local Data Extraction and Organization script
-data/organize_data.py
+# Data - Ignore the actual files, but keep the folders
+data/raw/**
+data/processed/*.npy
 
-# HOMUS Music Symbol Library
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Large HOMUS source folder (if it's inside your project)
 HOMUS/

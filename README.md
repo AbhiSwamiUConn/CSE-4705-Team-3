@@ -1,41 +1,83 @@
-# CSE-4705-Team-3
+# CSE-4705-Team-3: Musical Symbol Classification
 
-# Project Directory
-- data/               # Raw and preprocessed note images
-- notebooks/          # Exploratory analysis and quick tests
-- src/                # Shared helper functions (e.g., resizing, binarizing)
-- models/             # Models
-- results/            # Final comparison plots and tables
-- requirements.txt    # List of libraries
+This project implements a comparative study of three machine learning models (Logistic Regression, Random Forest, and CNN) to classify handwritten musical symbols (Whole, Half, and Quarter notes) using the HOMUS dataset.
 
-# Installation and Environment Setup
+---
 
-This project uses **Python 3.12**. Installation instructions are written in terms of Linux commands.
+## Project Directory
 
-### 1. Prerequisites
-Ensure you have **Python 3.12** installed on your system.
-* Check your version: `python --version` or `python3 --version`.
-* **Note:** Using Python 3.13+ may cause TensorFlow installation failures.
+- **data/**
+  - **raw/**: Sorted `.txt` stroke files from the HOMUS dataset.
+  - **processed/**: Standardized 32x32 `.npy` arrays for model training.
+  - `organize_data.py`: Automates sorting raw HOMUS files from a download directory.
+- **src/**
+  - `preprocess.py`: Renders strokes into binarized 32x32 images.
+  - `verify_data.py`: Visual verification script to check rendered samples.
+- **models/**: Individual directories for each model implementation.
+- **results/**: Final comparison plots, confusion matrices, and inference timing.
+- **requirements.txt**: Project dependencies (TensorFlow, Scikit-learn, OpenCV).
 
-### 2. Repository Setup
-Clone the repository and navigate into the project folder:
-```bash
-git clone git@github.com:AbhiSwamiUConn/CSE-4705-Team-3.git
-cd CSE-4705-Team-3
-```
+---
 
-### 3. Virtual Environment
-Use a virtual environment to isolate project dependencies:
+## Getting Started (Internal Team Workflow)
+
+### 1. Environment Setup
+
+Ensure you are using **Python 3.12**.
+
 ```bash
 python3.12 -m venv venv
 source venv/bin/activate
-```
-Install dependencies via pip:
-```bash
-pip install --upgrade pip
 pip install -r requirements.txt
 ```
-To exit the venv at any time:
+
+### 2. Data Pipeline
+
+The data is processed in a three-stage pipeline to ensure consistency across all models.
+
+**Stage 1 — Organization**
+
+Sort raw HOMUS files into class folders:
+
 ```bash
-deactivate
+python data/organize_data.py
+```
+
+**Stage 2 — Preprocessing**
+
+Render strokes to images, apply Adaptive Gaussian Thresholding, and normalize pixels to `[0.0, 1.0]`:
+
+```bash
+python src/preprocess.py
+```
+
+**Stage 3 — Outputs**
+
+Four files are generated in `data/processed/`:
+
+| File | Shape | Used By |
+|---|---|---|
+| `X_train_cnn.npy` / `X_test_cnn.npy` | `(N, 32, 32, 1)` | CNN |
+| `X_train_flat.npy` / `X_test_flat.npy` | `(N, 1024)` | Logistic Regression, Random Forest |
+
+---
+
+## Model Comparison Assignments
+
+To ensure a fair scientific comparison per CSE 4705 requirements, each member must use the exact same `.npy` files from `data/processed/`.
+
+| Model | Owner | Input Format | Key Metric |
+|---|---|---|---|
+| Logistic Regression | Member 1 | 2D Flattened (1024) | Baseline Accuracy |
+| Random Forest | Member 2 | 2D Flattened (1024) | Overfitting Analysis |
+| CNN | Krish | 4D Spatial (32x32x1) | Max Accuracy / GPU Perf |
+
+---
+
+## Usage
+
+To verify the data is rendered correctly before training:
+
+```bash
+python src/verify_data.py
 ```
