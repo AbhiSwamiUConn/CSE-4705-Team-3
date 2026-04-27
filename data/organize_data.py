@@ -1,19 +1,29 @@
 from pathlib import Path
 import shutil
 
-# Source: full 15,200-file HOMUS dataset (relative import)
-SOURCE_DIR = Path("./HOMUS")
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+
+# Source: full HOMUS dataset (absolute, relative to this script's location)
+SOURCE_DIR = PROJECT_ROOT / "HOMUS"
 
 # Target: project data/raw subdirectories
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
 TARGET_BASE = PROJECT_ROOT / "data" / "raw"
 
-# Class label (first line of file) -> target subfolder
-# The HOMUS files use "Whole-Note", "Half-Note", "Quarter-Note" (capital N)
+# Maps lowercased HOMUS class label (first line of each file) -> target subfolder.
+# Substring matching is used, so keys must be specific enough to avoid false hits.
 CLASS_MAP = {
-    "whole-note": TARGET_BASE / "whole-note",
-    "half-note":  TARGET_BASE / "half-note",
+    # Notes (original 3)
+    "whole-note":   TARGET_BASE / "whole-note",
+    "half-note":    TARGET_BASE / "half-note",
     "quarter-note": TARGET_BASE / "quarter-note",
+    # Clefs (new)
+    "g-clef":       TARGET_BASE / "g-clef",
+    "f-clef":       TARGET_BASE / "f-clef",
+    # Rests (new)
+    "quarter-rest": TARGET_BASE / "quarter-rest",
+    "eighth-rest":  TARGET_BASE / "eighth-rest",
+    # Time signatures (new)
+    "common-time":  TARGET_BASE / "common-time",
 }
 
 

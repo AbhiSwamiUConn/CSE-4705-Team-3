@@ -18,7 +18,12 @@ MODEL_OUT      = Path(__file__).resolve().parent / "music_note_cnn.h5"
 
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)
 
-CLASS_NAMES = ["Whole", "Half", "Quarter"]
+CLASS_NAMES = [
+    "Whole Note", "Half Note", "Quarter Note",
+    "G-Clef", "F-Clef",
+    "Quarter Rest", "Eighth Rest",
+    "Common Time",
+]
 NUM_CLASSES = len(CLASS_NAMES)
 IMG_SHAPE   = (32, 32, 1)
 EPOCHS      = 20
