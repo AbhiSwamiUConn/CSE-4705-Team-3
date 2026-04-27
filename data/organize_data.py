@@ -16,13 +16,13 @@ CLASS_MAP = {
     "whole-note":   TARGET_BASE / "whole-note",
     "half-note":    TARGET_BASE / "half-note",
     "quarter-note": TARGET_BASE / "quarter-note",
-    # Clefs (new)
+    # Clefs 
     "g-clef":       TARGET_BASE / "g-clef",
     "f-clef":       TARGET_BASE / "f-clef",
-    # Rests (new)
+    # Rests 
     "quarter-rest": TARGET_BASE / "quarter-rest",
     "eighth-rest":  TARGET_BASE / "eighth-rest",
-    # Time signatures (new)
+    # Time signatures 
     "common-time":  TARGET_BASE / "common-time",
 }
 
