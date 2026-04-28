@@ -1,0 +1,4 @@
+Model,Test Accuracy,Macro F1-Score,Inference Time (ms)
+Logistic Regression,0.7875,0.8093,7.15
+Random Forest,0.8650,0.8816,12.40
+CNN,0.9250,0.9424,123.97
